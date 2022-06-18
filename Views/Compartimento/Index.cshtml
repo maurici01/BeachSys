@@ -1,0 +1,61 @@
+@model IEnumerable<BeachSys.Models.Compartimento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Controle do Admin</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tamanho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponivel)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Trancado)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Cadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Armario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponivel)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Trancado)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Cadastro.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armario.Regiao)
+            </td>
+            <td>
+                <a asp-action="FinalizarCompartimento" asp-route-id="@item.CompartimentoId">Liberar Compartimento</a> |
+                <a asp-action="Details" asp-route-id="@item.CompartimentoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompartimentoId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,56 @@
+@model BeachSys.Models.Compartimento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Destravar Compartimento</h1>
+
+<h4>Compartimento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FinalizarCompartimento">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CompartimentoId" />
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" readonly />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tamanho" class="control-label"></label>
+                <input asp-for="Tamanho" class="form-control" readonly/>
+                <span asp-validation-for="Tamanho" class="text-danger"></span>
+            </div>
+            @*<div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Disponivel" readonly/> @Html.DisplayNameFor(model => model.Disponivel)
+                </label>
+            </div>>@*
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Trancado" /> @Html.DisplayNameFor(model => model.Trancado)
+                </label>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="CadastroId" class="control-label"></label>
+                <select asp-for="CadastroId" class="form-control" asp-items="ViewBag.CadastroId" reandoly></select>
+                <span asp-validation-for="CadastroId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArmarioId" class="control-label"></label>
+                <select asp-for="ArmarioId" class="form-control" asp-items="ViewBag.ArmarioId" reandoly></select>
+                <span asp-validation-for="ArmarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Destravar Compartimento" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
